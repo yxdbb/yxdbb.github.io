@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>专业评分系统</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
+body{background:#f5f5f5;color:#333}
+nav{background:#f47404;color:white;padding:1rem 5%;position:fixed;width:100%;top:0;left:0;z-index:999}
+.nav-container{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.2rem;font-weight:bold}
+.nav-links a{color:white;text-decoration:none;margin-left:1rem}
+.container{max-width:900px;margin:0 auto;padding:100px 20px 40px}
+.card{background:white;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.pro-title{font-size:16px;font-weight:bold;margin-bottom:12px;color:#222}
+.rate-row{display:flex;gap:8px;margin-bottom:12px}
+.rate-btn{flex:1;padding:8px 6px;border:1px solid #ddd;border-radius:6px;background:white;font-size:14px;cursor:pointer}
+.rate-btn.active{background:#f47404;color:white;border-color:#f47404}
+textarea{width:100%;height:60px;padding:10px;border:1px solid #ddd;border-radius:6px;resize:none;margin-bottom:10px}
+.submit{width:100%;padding:10px;background:#f47404;color:white;border:none;border-radius:6px;font-weight:bold;cursor:pointer}
+.avg-show{margin:10px 0;font-size:14px;color:#444;background:#f9f9f9;padding:8px 10px;border-radius:6px}
+.comment-list{margin-top:12px;padding-top:12px;border-top:1px solid #eee}
+.comment-item{font-size:14px;line-height:1.5;padding:6px 0;color:#333}
+.comment-tag{display:inline-block;background:#f47404;color:white;padding:2px 6px;border-radius:4px;font-size:12px;margin-right:6px}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-container">
+<div class="logo">专业评分</div>
+<div class="nav-links">
+<a href="index.html">返回首页</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<div class="pro-title">电子商务</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">应用心理学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">园艺</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">环境生态工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">环境科学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">金融科技</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">物流管理</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">教育技术学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">商务英语</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">翻译</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">英语</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">日语</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">旅游管理</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">人力资源管理</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">会计学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">经济学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">特殊教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">学前教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">小学教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">材料科学与工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">物理师范</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">数据科学与大数据技术</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">材料物理</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">信息安全</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">网络工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">计算机科学与技术</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">统计学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">数学师范</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">智能科学与技术</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">生物师范</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">电子信息工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">通信工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">光电信息科学与工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">化学师范</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">应用化学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">化学工程与工艺</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">生物工程</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">思想政治教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">法学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">文化遗产</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">历史学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下 your评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">网络与新媒体</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">社会工作</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">汉语国际教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">新闻学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">音乐表演（器乐）</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">音乐学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">舞蹈教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">书法学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">美术学</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">绘画</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">视觉传达设计</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">环境设计</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">服装与服饰设计</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">体育教育（健美操、啦啦操）</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">社会体育指导与管理</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+<div class="card">
+<div class="pro-title">体育教育</div>
+<div class="rate-row">
+<div class="rate-btn">极夯</div>
+<div class="rate-btn">很夯</div>
+<div class="rate-btn">一般</div>
+<div class="rate-btn">偏拉</div>
+<div class="rate-btn">巨拉</div>
+</div>
+<div class="avg-show">平均分：-- 分 | 评分人数：0</div>
+<textarea placeholder="写下你的评价..."></textarea>
+<button class="submit">提交评价</button>
+<div class="comment-list"></div>
+</div>
+
+</div>
+
+<script>
+// 评分等级对应分数
+const scoreMap = {
+    "极夯": 10,
+    "很夯": 8,
+    "一般": 6,
+    "偏拉": 4,
+    "巨拉": 2
+};
+
+// 读取本地存储
+function getStorage(key) {
+    let data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : { scores: [], comments: [] };
+}
+
+// 保存本地存储
+function setStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
+// 加载并渲染每个专业的分数和评论
+function loadAllData() {
+    document.querySelectorAll('.card').forEach(card => {
+        const proTitle = card.querySelector('.pro-title').innerText;
+        const data = getStorage(proTitle);
+        const avgEl = card.querySelector('.avg-show');
+        const commentListEl = card.querySelector('.comment-list');
+
+        // 计算平均分
+        let avg = "--";
+        let count = data.scores.length;
+        if (count > 0) {
+            let sum = data.scores.reduce((a, b) => a + b, 0);
+            avg = (sum / count).toFixed(1);
+        }
+        avgEl.innerText = `平均分：${avg} 分 | 评分人数：${count}`;
+
+        // 渲染评论
+        commentListEl.innerHTML = "";
+        data.comments.forEach(cmt => {
+            let div = document.createElement('div');
+            div.className = 'comment-item';
+            div.innerHTML = `<span class="comment-tag">${cmt.level}</span>${cmt.text}`;
+            commentListEl.appendChild(div);
+        });
+    });
+}
+
+// 评分按钮点击
+document.querySelectorAll('.rate-btn').forEach(btn => {
+    btn.onclick = function () {
+        let siblings = this.parentElement.children;
+        for (let s of siblings) s.classList.remove('active');
+        this.classList.add('active');
+    }
+});
+
+// 提交评价
+document.querySelectorAll('.submit').forEach(btn => {
+    btn.onclick = function () {
+        const card = this.closest('.card');
+        const proTitle = card.querySelector('.pro-title').innerText;
+        const activeBtn = card.querySelector('.rate-btn.active');
+        const textarea = card.querySelector('textarea');
+        const text = textarea.value.trim();
+
+        if (!activeBtn) return alert('请先选择评分');
+        if (!text) return alert('请输入评论');
+
+        const level = activeBtn.innerText;
+        const score = scoreMap[level];
+        const data = getStorage(proTitle);
+
+        // 保存数据
+        data.scores.push(score);
+        data.comments.push({ level, text });
+        setStorage(proTitle, data);
+
+        // 清空并刷新
+        textarea.value = "";
+        activeBtn.classList.remove('active');
+        loadAllData();
+        alert('提交成功！');
+    }
+});
+
+// 页面加载时初始化
+loadAllData();
+</script>
+
+</body>
+</html>
